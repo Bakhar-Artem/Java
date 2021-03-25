@@ -14,9 +14,9 @@ public class Log4j2Main {
         array.add(4);
         try {
             array.getAt(4);
-            logger.info("ok");
+            logger.info("getAt() success!");
         }catch (DynArrayException e){
-            logger.error("error",e);
+            logger.error("getAt() error!");
         }
     }
 }

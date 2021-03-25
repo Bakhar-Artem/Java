@@ -36,7 +36,7 @@ public class DynArray {
         }
         return data[pos];
     }
-
+    
     public void eraseAt(int pos) throws DynArrayException {
         if (size == 0) {
             throw new DynArrayException("No Elements");
@@ -51,17 +51,24 @@ public class DynArray {
     }
 
     private void resize() {
-        this.capacity = (this.capacity+1) * 2;
+        this.capacity = (this.capacity + 1) * 2;
         double[] tempData = new double[this.capacity];
-        for (int i = 0; i < size ; i++) {
+        for (int i = 0; i < size; i++) {
             tempData[i] = data[i];
         }
         data = tempData;
     }
 
+    public void setAt(int pos, double x) throws DynArrayException {
+        if (size == 0 || pos >= size || pos < 0) {
+            throw new DynArrayException("Wrong pos");
+        }
+        data[pos] = x;
+    }
+
     @Override
     public String toString() {
-        StringBuilder stringBuilder=new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < size; i++) {
             stringBuilder.append(data[i]).append(" ");
         }
