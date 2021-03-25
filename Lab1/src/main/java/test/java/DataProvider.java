@@ -1,7 +1,7 @@
 package test.java;
 
 import com.bakhar.entity.array.DynArray;
-import com.bakhar.entity.array.DynArrayException;
+import com.bakhar.entity.exception.DynArrayException;
 
 public class DataProvider {
     @org.testng.annotations.DataProvider(name = "Data")

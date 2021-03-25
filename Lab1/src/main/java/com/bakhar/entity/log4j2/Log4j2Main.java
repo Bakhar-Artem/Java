@@ -1,7 +1,7 @@
 package com.bakhar.entity.log4j2;
 
 import com.bakhar.entity.array.DynArray;
-import com.bakhar.entity.array.DynArrayException;
+import com.bakhar.entity.exception.DynArrayException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
