@@ -1,6 +1,8 @@
 package com.bakhar.entity.array;
 
 
+import java.util.Arrays;
+
 public class DynArray {
     private int size;
     private int capacity;
@@ -8,6 +10,11 @@ public class DynArray {
 
     public int getSize() {
         return size;
+    }
+
+    public DynArray(double[] data) {
+        this.capacity=this.size= data.length;
+        this.data = Arrays.copyOf(data,data.length);
     }
 
     public DynArray() {
