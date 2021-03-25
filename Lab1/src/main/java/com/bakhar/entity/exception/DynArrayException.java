@@ -1,4 +1,4 @@
-package com.bakhar.entity.array;
+package com.bakhar.entity.exception;
 
 public class DynArrayException extends Exception{
     public DynArrayException() {

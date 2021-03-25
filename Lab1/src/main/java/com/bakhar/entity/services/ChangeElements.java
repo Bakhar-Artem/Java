@@ -1,7 +1,7 @@
 package com.bakhar.entity.services;
 
 import com.bakhar.entity.array.DynArray;
-import com.bakhar.entity.array.DynArrayException;
+import com.bakhar.entity.exception.DynArrayException;
 
 public class ChangeElements {
     public static void changeElements(DynArray array, int start, int finish, double value) throws DynArrayException {

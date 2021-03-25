@@ -1,7 +1,7 @@
 package test.java;
 
 import com.bakhar.entity.array.DynArray;
-import com.bakhar.entity.array.DynArrayException;
+import com.bakhar.entity.exception.DynArrayException;
 import com.bakhar.entity.services.FindMaxMinValue;
 import org.testng.Assert;
 import org.testng.annotations.*;

@@ -1,6 +1,8 @@
 package com.bakhar.entity.array;
 
 
+import com.bakhar.entity.exception.DynArrayException;
+
 import java.util.Arrays;
 
 public class DynArray {
