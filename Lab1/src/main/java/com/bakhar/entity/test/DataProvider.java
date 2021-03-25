@@ -1,4 +1,4 @@
-package test.java;
+package com.bakhar.entity.test;
 
 import com.bakhar.entity.array.DynArray;
 import com.bakhar.entity.exception.DynArrayException;
