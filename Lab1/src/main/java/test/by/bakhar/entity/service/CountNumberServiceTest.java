@@ -8,8 +8,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
 public class CountNumberServiceTest {
     CountNumberService countNumber = new CountNumberImpl();
 

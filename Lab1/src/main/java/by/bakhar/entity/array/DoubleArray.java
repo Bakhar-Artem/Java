@@ -18,7 +18,7 @@ public class DoubleArray {
     }
 
     public DoubleArray() {
-        array=new double[0];
+        array = new double[0];
     }
 
     public double[] getArray() {
@@ -50,15 +50,20 @@ public class DoubleArray {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         DoubleArray that = (DoubleArray) o;
         return Arrays.equals(array, that.array);
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(array);
+        int hash = (25 * Arrays.hashCode(array) + 27) % 101;
+        return hash;
     }
 
     @Override

@@ -2,14 +2,14 @@ package test.by.bakhar.entity.service;
 
 import by.bakhar.entity.array.DoubleArray;
 import by.bakhar.entity.exception.DoubleArrayException;
+import by.bakhar.entity.service.ChangeElementService;
 import by.bakhar.entity.service.impl.ChangeElementImpl;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
-public class ChangeElementImplTest {
-    ChangeElementImpl changeElement=new ChangeElementImpl();
+public class ChangeElementServiceTest {
+    ChangeElementService changeElement=new ChangeElementImpl();
     @Test
     public void testChangeElement() throws DoubleArrayException {
         DoubleArray array=new DoubleArray(-45.,49.2,0.,105.,14);

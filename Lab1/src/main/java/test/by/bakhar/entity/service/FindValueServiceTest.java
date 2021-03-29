@@ -2,6 +2,7 @@ package test.by.bakhar.entity.service;
 
 import by.bakhar.entity.array.DoubleArray;
 import by.bakhar.entity.exception.DoubleArrayException;
+import by.bakhar.entity.service.FindValueService;
 import by.bakhar.entity.service.impl.FindValueImpl;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -9,7 +10,7 @@ import org.testng.annotations.Test;
 
 
 public class FindValueServiceTest {
-    private FindValueImpl findValue = new FindValueImpl();
+    private FindValueService findValue = new FindValueImpl();
 
     @DataProvider(name = "dataProvider")
     public Object[][] dataProviderInit() {

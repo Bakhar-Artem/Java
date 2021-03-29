@@ -2,14 +2,15 @@ package test.by.bakhar.entity.service;
 
 import by.bakhar.entity.array.DoubleArray;
 import by.bakhar.entity.exception.DoubleArrayException;
+import by.bakhar.entity.service.SortService;
 import by.bakhar.entity.service.impl.SortImpl;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-public class SortImplTest {
-    private SortImpl sortImpl = new SortImpl();
+public class SortServiceTest {
+    private SortService sortImpl = new SortImpl();
 
     @DataProvider(name = "sortedArrays")
     public Object[][] initArrays() {
