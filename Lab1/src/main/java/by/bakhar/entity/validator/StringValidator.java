@@ -1,15 +1,13 @@
 package by.bakhar.entity.validator;
 
 public class StringValidator {
-    public boolean IsValid(String string) {
-        String[] values = string.split(",");
-        try {
-            for (String value : values) {
-                Double.parseDouble(value);
-            }
-        } catch (NumberFormatException e) {
+    private final String DOUBLEHEADER = "^(\\d+([.])?+(\\d)?+[,]+\\b)*+\\d+([.]?)+\\d?";
+
+    public boolean isValid(String string) {
+        if (string.matches(DOUBLEHEADER)) {
+            return true;
+        } else {
             return false;
         }
-        return true;
     }
 }

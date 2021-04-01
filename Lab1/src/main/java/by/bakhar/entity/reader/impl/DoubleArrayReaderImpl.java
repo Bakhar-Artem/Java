@@ -14,13 +14,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DoubleArrayReaderImpl implements DoubleArrayReader {
+    private final String FILEPATH = "src/main/resources/data/data.txt";
+
     @Override
-    public List<String> readFromTxt(File file) throws DoubleArrayReaderException, IOException {
-        if(file==null) {
-            throw new DoubleArrayReaderException("Null pointer!");
+    public List<String> readFromTxt() throws DoubleArrayReaderException {
+        List<String> strings = new ArrayList<>();
+        try {
+            Files.lines(Paths.get(FILEPATH), StandardCharsets.UTF_8).forEach(strings::add);
+        } catch (IOException e) {
+            throw new DoubleArrayReaderException("Wrong File!");
         }
-        List<String> strings=new ArrayList<>();
-        Files.lines(Paths.get(String.valueOf(file)), StandardCharsets.UTF_8).forEach(strings::add);
         return strings;
     }
+
 }

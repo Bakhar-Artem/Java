@@ -8,28 +8,26 @@ import java.util.Arrays;
 public class DoubleArray {
     private double[] array;
 
-    public int getLength() {
-        return array.length;
-    }
-
-
     public DoubleArray(double... array) {
         this.array = array;
-    }
-
-    public DoubleArray() {
-        array = new double[0];
     }
 
     public double[] getArray() {
         return Arrays.copyOf(array, array.length);
     }
 
+    public int getLength() {
+        return array.length;
+    }
+
     public void setArray(double[] array) {
         this.array = array;
     }
 
-    public DoubleArray(int length) {
+    public DoubleArray(int length)throws DoubleArrayException {
+        if(length<=0){
+            throw new DoubleArrayException("Bad length!");
+        }
         array = new double[length];
     }
 

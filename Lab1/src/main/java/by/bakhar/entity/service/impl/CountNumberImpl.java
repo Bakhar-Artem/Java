@@ -14,7 +14,7 @@ public class CountNumberImpl implements CountNumberService {
 
     @Override
     public double countSum(DoubleArray array) throws DoubleArrayException {
-        if (array == null || array.getLength() == 0) {
+        if (array == null) {
             throw new DoubleArrayException("Array is empty!");
         }
         double sum = 0;
@@ -27,7 +27,7 @@ public class CountNumberImpl implements CountNumberService {
 
     @Override
     public double countSumDoubleStream(DoubleArray array) throws DoubleArrayException {
-        if (array == null || array.getLength() == 0) {
+        if (array == null) {
             throw new DoubleArrayException("Array is empty!");
         }
         double sum = DoubleStream.of(array.getArray()).sum();
@@ -36,7 +36,7 @@ public class CountNumberImpl implements CountNumberService {
     }
 
     @Override
-    public long countPositiveDoubleStream(DoubleArray array, int start, int finish) throws DoubleArrayException {
+    public long countPositiveDoubleStream(DoubleArray array) throws DoubleArrayException {
         if (array == null || array.getLength() == 0) {
             throw new DoubleArrayException("Array is empty!");
         }
@@ -46,7 +46,7 @@ public class CountNumberImpl implements CountNumberService {
     }
 
     @Override
-    public long countNegativeDoubleStream(DoubleArray array, int start, int finish) throws DoubleArrayException {
+    public long countNegativeDoubleStream(DoubleArray array) throws DoubleArrayException {
         if (array == null || array.getLength() == 0) {
             throw new DoubleArrayException("Array is empty!");
         }
@@ -57,7 +57,7 @@ public class CountNumberImpl implements CountNumberService {
 
     @Override
     public double countAverageDoubleStream(DoubleArray array) throws DoubleArrayException {
-        if (array == null || array.getLength() == 0) {
+        if (array == null) {
             throw new DoubleArrayException("Array is empty!");
         }
         OptionalDouble average = DoubleStream.of(array.getArray()).average();
@@ -67,12 +67,9 @@ public class CountNumberImpl implements CountNumberService {
     }
 
     @Override
-    public int countPositive(DoubleArray array, int start, int finish) throws DoubleArrayException {
-        if (array == null || array.getLength() == 0) {
+    public int countPositive(DoubleArray array) throws DoubleArrayException {
+        if (array == null) {
             throw new DoubleArrayException("Array is empty!");
-        }
-        if (start < 0 || finish >= array.getLength() || start > finish) {
-            throw new DoubleArrayException("Bad index!");
         }
         double[] tempArray = array.getArray();
         int counter = 0;
@@ -86,12 +83,9 @@ public class CountNumberImpl implements CountNumberService {
     }
 
     @Override
-    public int countNegative(DoubleArray array, int start, int finish) throws DoubleArrayException {
+    public int countNegative(DoubleArray array) throws DoubleArrayException {
         if (array == null || array.getLength() == 0) {
             throw new DoubleArrayException("Array is empty!");
-        }
-        if (start < 0 || finish >= array.getLength() || start > finish) {
-            throw new DoubleArrayException("Bad index!");
         }
         double[] tempArray = array.getArray();
         int counter = 0;
@@ -106,12 +100,12 @@ public class CountNumberImpl implements CountNumberService {
 
     @Override
     public double countAverage(DoubleArray array) throws DoubleArrayException {
-        if (array == null || array.getLength() == 0) {
+        if (array == null) {
             throw new DoubleArrayException("Array is empty!");
         }
-        double sum = countSum(array);
-        logger.info("Average is " + sum);
-        return sum / array.getLength();
+        double result = countSum(array) / array.getLength();
+        logger.info("Average is " + result);
+        return result;
     }
 
 }

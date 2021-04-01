@@ -8,13 +8,13 @@ public interface CountNumberService {
 
     double countSumDoubleStream(DoubleArray array) throws DoubleArrayException;
 
-    int countPositive(DoubleArray array, int start, int finish) throws DoubleArrayException;
+    int countPositive(DoubleArray array) throws DoubleArrayException;
 
-    long countPositiveDoubleStream(DoubleArray array, int start, int finish) throws DoubleArrayException;
+    long countPositiveDoubleStream(DoubleArray array) throws DoubleArrayException;
 
-    int countNegative(DoubleArray array, int start, int finish) throws DoubleArrayException;
+    int countNegative(DoubleArray array) throws DoubleArrayException;
 
-    long countNegativeDoubleStream(DoubleArray array, int start, int finish) throws DoubleArrayException;
+    long countNegativeDoubleStream(DoubleArray array) throws DoubleArrayException;
 
     double countAverage(DoubleArray array) throws DoubleArrayException;
 

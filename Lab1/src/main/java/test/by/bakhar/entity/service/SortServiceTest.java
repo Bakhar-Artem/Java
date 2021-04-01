@@ -17,8 +17,7 @@ public class SortServiceTest {
         return new Object[][]{
                 {new DoubleArray(45.7, -60.4, 0, 0, 0, 0, 49.5, 79., -96.2), new double[]{-96.2, -60.4, 0, 0, 0, 0, 45.7, 49.5, 79.}},
                 {new DoubleArray(0, 0, 0, 0, 0, 1, 0, 0, -1), new double[]{-1, 0, 0, 0, 0, 0, 0, 0, 1}},
-                {new DoubleArray(1.01, 1.05, -1.45, 50.4, 0, 1., 49.5, 79., -96.2), new double[]{-96.2, -1.45, 0, 1., 1.01, 1.05, 49.5, 50.4, 79.}},
-                {new DoubleArray(0), new double[0]}
+                {new DoubleArray(1.01, 1.05, -1.45, 50.4, 0, 1., 49.5, 79., -96.2), new double[]{-96.2, -1.45, 0, 1., 1.01, 1.05, 49.5, 50.4, 79.}}
         };
     }
 

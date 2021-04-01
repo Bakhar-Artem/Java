@@ -55,7 +55,6 @@ public class FindValueServiceTest {
     public Object[][] nullPointerArraysInit() {
         return new Object[][]{
                 {new DoubleArray()},
-                {new DoubleArray(0)}
         };
     }
 

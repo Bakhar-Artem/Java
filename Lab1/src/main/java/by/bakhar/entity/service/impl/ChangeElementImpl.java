@@ -7,7 +7,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ChangeElementImpl implements ChangeElementService {
-    static Logger logger= LogManager.getLogger();
+    static Logger logger = LogManager.getLogger();
+
     @Override
     public void changeElement(DoubleArray doubleArray, int start, int finish, double x) throws DoubleArrayException {
         if (start < 0 || finish >= doubleArray.getLength() || start > finish) {
@@ -16,6 +17,6 @@ public class ChangeElementImpl implements ChangeElementService {
         for (int i = start; i <= finish; i++) {
             doubleArray.setAt(i, x);
         }
-        logger.info("Elements were changed to "+x);
+        logger.info("Elements were  changed from " + start + " to " + finish + " on " + x);
     }
 }

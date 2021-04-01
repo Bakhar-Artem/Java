@@ -7,5 +7,5 @@ import java.io.IOException;
 import java.util.List;
 
 public interface DoubleArrayReader {
-    List<String> readFromTxt(File file) throws DoubleArrayReaderException, IOException;
+    List<String> readFromTxt() throws DoubleArrayReaderException;
 }
