@@ -58,7 +58,7 @@ public class FindValueServiceTest {
         };
     }
 
-    @Test(expectedExceptions = DoubleArrayException.class,dataProvider = "nullPointerProvider")
+    @Test(expectedExceptions = DoubleArrayException.class, dataProvider = "nullPointerProvider")
     public void testDoubleArrayException(Object[] data) throws DoubleArrayException {
         findValue.findMax((DoubleArray) data[0]);
     }

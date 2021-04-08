@@ -3,11 +3,16 @@ package by.bakhar.task1.service.impl;
 import by.bakhar.task1.array.DoubleArray;
 import by.bakhar.task1.exception.DoubleArrayException;
 import by.bakhar.task1.service.SortService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SortImpl implements SortService {
+    static Logger logger = LogManager.getLogger();
+
     @Override
     public void bubbleSort(DoubleArray array) throws DoubleArrayException {
         if (array == null) {
+            logger.error("null pointer!");
             throw new DoubleArrayException("Null pointer!");
         }
         if (array.getLength() > 1) {
@@ -35,11 +40,12 @@ public class SortImpl implements SortService {
     @Override
     public void mergeSort(DoubleArray array) throws DoubleArrayException {
         if (array == null) {
+            logger.error("null pointer!");
             throw new DoubleArrayException("Null pointer!");
         }
         if (array.getLength() > 1) {
             double[] tempArray = array.getArray();
-            mergeSortHelper(tempArray,0,tempArray.length-1);
+            mergeSortHelper(tempArray, 0, tempArray.length - 1);
             array.setArray(tempArray);
         }
     }
@@ -67,6 +73,7 @@ public class SortImpl implements SortService {
     @Override
     public void selectionSort(DoubleArray array) throws DoubleArrayException {
         if (array == null) {
+            logger.error("null pointer!");
             throw new DoubleArrayException("Null pointer!");
         }
         if (array.getLength() > 1) {

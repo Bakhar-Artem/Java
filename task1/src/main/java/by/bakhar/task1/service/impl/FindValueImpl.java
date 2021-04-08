@@ -3,14 +3,23 @@ package by.bakhar.task1.service.impl;
 import by.bakhar.task1.array.DoubleArray;
 import by.bakhar.task1.exception.DoubleArrayException;
 import by.bakhar.task1.service.FindValueService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.OptionalDouble;
 import java.util.stream.DoubleStream;
 
 public class FindValueImpl implements FindValueService {
+    static Logger logger = LogManager.getLogger();
+
     @Override
     public double findMax(DoubleArray array) throws DoubleArrayException {
-        if (array == null || array.getLength() == 0) {
+        if (array == null) {
+            logger.error("null pointer");
+            throw new DoubleArrayException("Null pointer!");
+        }
+        if (array.getLength() == 0) {
+            logger.error("empty array!");
             throw new DoubleArrayException("Array is empty!");
         }
         double[] tempArray = array.getArray();
@@ -25,7 +34,12 @@ public class FindValueImpl implements FindValueService {
 
     @Override
     public double findMaxDoubleStream(DoubleArray array) throws DoubleArrayException {
-        if (array == null || array.getLength() == 0) {
+        if (array == null) {
+            logger.error("null pointer");
+            throw new DoubleArrayException("Null pointer!");
+        }
+        if (array.getLength() == 0) {
+            logger.error("empty array!");
             throw new DoubleArrayException("Array is empty!");
         }
         double[] tempArray = array.getArray();
@@ -36,7 +50,12 @@ public class FindValueImpl implements FindValueService {
 
     @Override
     public double findMin(DoubleArray array) throws DoubleArrayException {
-        if (array == null || array.getLength() == 0) {
+        if (array == null) {
+            logger.error("null pointer");
+            throw new DoubleArrayException("Null pointer!");
+        }
+        if (array.getLength() == 0) {
+            logger.error("empty array!");
             throw new DoubleArrayException("Array is empty!");
         }
         double[] tempArray = array.getArray();
@@ -51,7 +70,12 @@ public class FindValueImpl implements FindValueService {
 
     @Override
     public double findMinDoubleStream(DoubleArray array) throws DoubleArrayException {
-        if (array == null || array.getLength() == 0) {
+        if (array == null) {
+            logger.error("null pointer");
+            throw new DoubleArrayException("Null pointer!");
+        }
+        if (array.getLength() == 0) {
+            logger.error("empty array!");
             throw new DoubleArrayException("Array is empty!");
         }
         double[] tempArray = array.getArray();

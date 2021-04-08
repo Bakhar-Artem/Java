@@ -15,9 +15,11 @@ public class CountNumberImpl implements CountNumberService {
     @Override
     public double countSum(DoubleArray array) throws DoubleArrayException {
         if (array == null) {
+            logger.error("null pointer!");
             throw new DoubleArrayException("Null pointer!");
         }
         if (array.getLength() == 0) {
+            logger.error("empty array!");
             throw new DoubleArrayException("Array is empty!");
         }
         double sum = 0;
@@ -31,9 +33,11 @@ public class CountNumberImpl implements CountNumberService {
     @Override
     public double countSumDoubleStream(DoubleArray array) throws DoubleArrayException {
         if (array == null) {
+            logger.error("null pointer!");
             throw new DoubleArrayException("Null pointer!");
         }
         if (array.getLength() == 0) {
+            logger.error("empty array!");
             throw new DoubleArrayException("Array is empty!");
         }
         double sum = DoubleStream.of(array.getArray()).sum();
@@ -44,9 +48,11 @@ public class CountNumberImpl implements CountNumberService {
     @Override
     public long countPositiveDoubleStream(DoubleArray array) throws DoubleArrayException {
         if (array == null) {
+            logger.error("null pointer!");
             throw new DoubleArrayException("Null pointer!");
         }
         if (array.getLength() == 0) {
+            logger.error("empty array!");
             throw new DoubleArrayException("Array is empty!");
         }
         long counter = DoubleStream.of(array.getArray()).filter(x -> x > 0.).count();
@@ -57,9 +63,11 @@ public class CountNumberImpl implements CountNumberService {
     @Override
     public long countNegativeDoubleStream(DoubleArray array) throws DoubleArrayException {
         if (array == null) {
+            logger.error("null pointer!");
             throw new DoubleArrayException("Null pointer!");
         }
         if (array.getLength() == 0) {
+            logger.error("empty array!");
             throw new DoubleArrayException("Array is empty!");
         }
         long counter = DoubleStream.of(array.getArray()).filter(x -> x < 0.).count();
@@ -70,9 +78,11 @@ public class CountNumberImpl implements CountNumberService {
     @Override
     public double countAverageDoubleStream(DoubleArray array) throws DoubleArrayException {
         if (array == null) {
+            logger.error("null pointer!");
             throw new DoubleArrayException("Null pointer!");
         }
         if (array.getLength() == 0) {
+            logger.error("empty array!");
             throw new DoubleArrayException("Array is empty!");
         }
         OptionalDouble average = DoubleStream.of(array.getArray()).average();
@@ -84,9 +94,11 @@ public class CountNumberImpl implements CountNumberService {
     @Override
     public int countPositive(DoubleArray array) throws DoubleArrayException {
         if (array == null) {
+            logger.error("null pointer!");
             throw new DoubleArrayException("Null pointer!");
         }
         if (array.getLength() == 0) {
+            logger.error("empty array!");
             throw new DoubleArrayException("Array is empty!");
         }
         double[] tempArray = array.getArray();
@@ -103,9 +115,11 @@ public class CountNumberImpl implements CountNumberService {
     @Override
     public int countNegative(DoubleArray array) throws DoubleArrayException {
         if (array == null) {
+            logger.error("null pointer!");
             throw new DoubleArrayException("Null pointer!");
         }
         if (array.getLength() == 0) {
+            logger.error("empty array!");
             throw new DoubleArrayException("Array is empty!");
         }
         double[] tempArray = array.getArray();
@@ -122,9 +136,11 @@ public class CountNumberImpl implements CountNumberService {
     @Override
     public double countAverage(DoubleArray array) throws DoubleArrayException {
         if (array == null) {
+            logger.error("null pointer!");
             throw new DoubleArrayException("Null pointer!");
         }
         if (array.getLength() == 0) {
+            logger.error("empty array!");
             throw new DoubleArrayException("Array is empty!");
         }
         double result = countSum(array) / array.getLength();
