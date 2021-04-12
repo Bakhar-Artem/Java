@@ -122,10 +122,10 @@ public abstract class Bank {
 
     @Override
     public String toString() {
-        return  "id= " + id + '\'' +
-                ", name= " + name + '\'' +
-                ", country= " + country + '\'' +
-                ", depositor= " + depositor + '\'' +
+        return "id= " + id +
+                ", name= " + name +
+                ", country= " + country +
+                ", depositor= " + depositor +
                 ", amountOnDeposit= " + amountOnDeposit +
                 ", profitability= " + profitability +
                 ", timeConstraint= " + timeConstraint +
