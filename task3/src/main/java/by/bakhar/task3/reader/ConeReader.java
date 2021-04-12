@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConeReader {
-    static Logger logger = LogManager.getLogger();
+    private static Logger logger = LogManager.getLogger();
 
     public List<String> readConeFromFile(String filepath) throws ConeException {
 

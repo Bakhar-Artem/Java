@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ConeFactory {
-    static Logger logger = LogManager.getLogger();
+    private static Logger logger = LogManager.getLogger();
     private static final int ARRAY_SIZE = 7;
 
     public static Cone createCone(double[] coneDouble) throws ConeException {

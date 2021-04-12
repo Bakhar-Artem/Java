@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ConeParser {
-    static Logger logger = LogManager.getLogger();
+    private static Logger logger = LogManager.getLogger();
     private final static String SPACE_REGEX = " ";
     private static final int ARRAY_SIZE = 7;
 
