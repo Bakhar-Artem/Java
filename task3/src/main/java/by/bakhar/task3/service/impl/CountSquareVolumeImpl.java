@@ -1,10 +1,10 @@
 package by.bakhar.task3.service.impl;
 
-import by.bakhar.task3.service.CountSquareVolumeAction;
+import by.bakhar.task3.service.CountSquareVolume;
 import by.bakhar.task3.entity.Cone;
 import by.bakhar.task3.entity.Point;
 
-public class CountSquareVolumeActionImpl implements CountSquareVolumeAction {
+public class CountSquareVolumeImpl implements CountSquareVolume {
     @Override
     public double countSquare(Cone cone) {
         double forming = countForming(cone);
