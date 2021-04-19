@@ -1,7 +1,6 @@
 package by.bakhar.task2.entity;
 
 import java.time.Year;
-import java.util.Objects;
 
 public class VirtualBank extends Bank {
     private final static String WEB_SITE = "https://bakhar.com/product";
@@ -36,7 +35,7 @@ public class VirtualBank extends Bank {
             return false;
         }
         VirtualBank that = (VirtualBank) o;
-        return Objects.equals(website, that.website);
+        return website.equals(that.website);
     }
 
     @Override
@@ -49,7 +48,8 @@ public class VirtualBank extends Bank {
 
     @Override
     public String toString() {
-        return "VirtualBank " + super.toString() +
-                ", website= " + website;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Virtual bank ").append(super.toString()).append(", ").append("website ").append(website);
+        return stringBuilder.toString();
     }
 }

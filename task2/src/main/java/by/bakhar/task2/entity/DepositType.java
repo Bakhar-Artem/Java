@@ -7,6 +7,7 @@ public enum DepositType {
     CUMULATIVE,
     SAVING;
 
+
     @Override
     public String toString() {
         return this.name().toLowerCase();

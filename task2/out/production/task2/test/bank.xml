@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Banks>
+    <virtual-bank id="v4" type="urgent">
+        <name>Famcs</name>
+        <country>Belarus</country>
+        <depositor>Qwerty</depositor>
+        <amount-on-deposit>0.5</amount-on-deposit>
+        <profitability>64</profitability>
+        <time-constraints>2030</time-constraints>
+        <website>https://www.edu.com</website>
+    </virtual-bank>
+    <virtual-bank id="v2" >
+        <name>Famcs</name>
+        <country>Belarus</country>
+        <depositor>Artem</depositor>
+        <amount-on-deposit>0.5</amount-on-deposit>
+        <profitability>64</profitability>
+        <time-constraints>2030</time-constraints>
+        <website>https://www.edu.com</website>
+    </virtual-bank>
+    <traditional-bank id="t1" type="calculated">
+        <name>Famcs</name>
+        <country>Belarus</country>
+        <depositor>Grisha</depositor>
+        <amount-on-deposit>0.5</amount-on-deposit>
+        <profitability>64</profitability>
+        <time-constraints>2030</time-constraints>
+        <count-of-branch>5</count-of-branch>
+    </traditional-bank>
+    <traditional-bank id="t2">
+        <name>Famcs</name>
+        <country>Belarus</country>
+        <depositor>Vasya</depositor>
+        <amount-on-deposit>0.5</amount-on-deposit>
+        <profitability>64</profitability>
+        <time-constraints>2030</time-constraints>
+        <count-of-branch>7</count-of-branch>
+    </traditional-bank>
+</Banks>

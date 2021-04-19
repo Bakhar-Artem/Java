@@ -1,4 +1,4 @@
-package exception;
+package by.bakhar.task2.exception;
 
 public class BankException extends Exception {
     public BankException() {

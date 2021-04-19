@@ -1,7 +1,6 @@
 package by.bakhar.task2.entity;
 
 import java.time.Year;
-import java.util.Objects;
 
 public class TraditionalBank extends Bank {
     private int countOfBranch;
@@ -39,8 +38,9 @@ public class TraditionalBank extends Bank {
 
     @Override
     public String toString() {
-        return "TraditionalBank " + super.toString() +
-                ", countOfBranch= " + countOfBranch;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Traditional bank ").append(super.toString()).append(", ").append("countOfBranch ").append(countOfBranch);
+        return stringBuilder.toString();
     }
 
     @Override

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="https://github.com/Bakhar-Artem/Java"
+        xmlns:tns="https://github.com/Bakhar-Artem/Java"
+        elementFormDefault="qualified">
+    <element name="Banks">
+        <complexType>
+            <sequence>
+                <element name="bank" type="tns:Bank" minOccurs="16" maxOccurs="50"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Bank">
+        <sequence>
+            <element name="name" type="string"></element>
+            <element name="country" type="string"></element>
+            <element name="depositor" type="string"></element>
+            <element name="amount-on-deposit" type="tns:Double"></element>
+            <element name="profitability" type="positiveInteger"></element>
+            <element name="time-constraints" type="gYear"></element>
+        </sequence>
+        <attribute name="id" type="tns:id-bank" use="required"/>
+        <attribute name="type" type="tns:Type" use="optional" default="saving"></attribute>
+    </complexType>
+    <simpleType name="id-bank">
+        <restriction base="ID">
+            <pattern value="\w{1,8}"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="Type">
+        <restriction base="string">
+            <enumeration value="on-demand"></enumeration>
+            <enumeration value="urgent"></enumeration>
+            <enumeration value="calculated"></enumeration>
+            <enumeration value="cumulative"></enumeration>
+            <enumeration value="saving"></enumeration>
+        </restriction>
+    </simpleType>
+    <simpleType name="Double">
+        <restriction base="double">
+            <minInclusive value="0"/>
+        </restriction>
+    </simpleType>
+    <complexType name="virtual-bank">
+        <complexContent>
+            <extension base="tns:Bank">
+                <sequence>
+                    <element name="website" type="string"></element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="traditional-bank">
+        <complexContent>
+            <extension base="tns:Bank">
+                <sequence>
+                    <element name="count-of-branch" type="positiveInteger"></element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element name="bank" type="tns:Bank" abstract="true"></element>
+    <element name="virtual-bank" type="tns:virtual-bank" substitutionGroup="tns:bank"/>
+    <element name="traditional-bank" type="tns:traditional-bank" substitutionGroup="tns:bank"/>
+</schema>

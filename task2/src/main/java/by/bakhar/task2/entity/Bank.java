@@ -122,13 +122,15 @@ public abstract class Bank {
 
     @Override
     public String toString() {
-        return "id= " + id +
-                ", name= " + name +
-                ", country= " + country +
-                ", depositor= " + depositor +
-                ", amountOnDeposit= " + amountOnDeposit +
-                ", profitability= " + profitability +
-                ", timeConstraint= " + timeConstraint +
-                ", depositType= " + depositType;
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append("id ").append(id);
+        stringBuilder.append(", name ").append(name);
+        stringBuilder.append(", country ").append(country);
+        stringBuilder.append(", depositor ").append(depositor);
+        stringBuilder.append(", amount on deposit ").append(amountOnDeposit);
+        stringBuilder.append(", profitability ").append(profitability);
+        stringBuilder.append(", time constraint ").append(timeConstraint);
+        stringBuilder.append(", deposit type ").append(depositType);
+        return stringBuilder.toString();
     }
 }
