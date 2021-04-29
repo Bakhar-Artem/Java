@@ -5,8 +5,6 @@ import by.bakhar.task3.entity.Point;
 import by.bakhar.task3.exception.ConeException;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
 public class ConeTest {
     @Test(expectedExceptions = ConeException.class)
     public void testRadiusConeException() throws ConeException {

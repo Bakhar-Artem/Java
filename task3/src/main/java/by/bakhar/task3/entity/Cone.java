@@ -25,6 +25,14 @@ public class Cone {
         this.highPoint = highPoint;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public Point getCenterPoint() {
         return centerPoint;
     }
@@ -58,12 +66,13 @@ public class Cone {
             return false;
         }
         Cone cone = (Cone) o;
-        return Double.compare(cone.radius, radius) == 0 && centerPoint.equals(cone.centerPoint) && highPoint.equals(cone.highPoint);
+        return Long.compare(id, cone.id) == 0 && Double.compare(cone.radius, radius) == 0 && centerPoint.equals(cone.centerPoint) && highPoint.equals(cone.highPoint);
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
+        hash += (13 * id) % 101;
         hash += (13 * centerPoint.hashCode()) % 101;
         hash += (13 * Double.hashCode(radius)) % 101;
         hash += (13 * highPoint.hashCode()) % 101;

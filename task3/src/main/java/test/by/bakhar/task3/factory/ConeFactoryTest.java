@@ -4,11 +4,8 @@ import by.bakhar.task3.entity.Cone;
 import by.bakhar.task3.entity.Point;
 import by.bakhar.task3.exception.ConeException;
 import by.bakhar.task3.factory.ConeFactory;
-import by.bakhar.task3.reader.ConeReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.*;
 
 public class ConeFactoryTest {
 

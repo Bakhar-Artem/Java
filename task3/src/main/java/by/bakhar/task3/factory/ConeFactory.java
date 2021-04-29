@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 public class ConeFactory {
     private static Logger logger = LogManager.getLogger();
     private static final int ARRAY_SIZE = 7;
+    //константы?
 
     public static Cone createCone(double[] coneDouble) throws ConeException {
         if (coneDouble.length != ARRAY_SIZE) {

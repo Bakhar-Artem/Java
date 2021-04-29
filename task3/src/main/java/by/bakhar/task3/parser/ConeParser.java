@@ -1,6 +1,5 @@
 package by.bakhar.task3.parser;
 
-import by.bakhar.task3.entity.Point;
 import by.bakhar.task3.exception.ConeException;
 import by.bakhar.task3.validation.ConeStringValidator;
 import org.apache.logging.log4j.LogManager;
