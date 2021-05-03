@@ -1,0 +1,6 @@
+23:26:01.154 [main] INFO  by.bakhar.task3.entity.Warehouse - Cone was add 1 ConeParameters: square: 106.4640003057625, volume: 33.510321638291124
+23:26:01.170 [main] ERROR by.bakhar.task3.observer.impl.ConeObserverImpl - Cone became invalid! id: 2, centerPoint: x= 0.0 y= 5.0 z= 0.0, radius: 4.0, highPoint: x= -5.4 y= 5.0 z= 0.0
+23:26:01.174 [main] INFO  by.bakhar.task3.observer.impl.ConeObserverImpl - Square was updated to 163.1297873220651
+23:26:01.175 [main] INFO  by.bakhar.task3.observer.impl.ConeObserverImpl - Volume was updated to 52.35987755982988
+23:26:01.178 [main] INFO  by.bakhar.task3.observer.impl.ConeObserverImpl - Square was updated to 218.8252082227637
+23:26:01.178 [main] INFO  by.bakhar.task3.observer.impl.ConeObserverImpl - Volume was updated to 193.73154697137056

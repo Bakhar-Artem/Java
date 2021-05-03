@@ -1,4 +1,4 @@
-package by.bakhar.task3.utils;
+package by.bakhar.task3.util;
 
 public class ConeIdGenerator {
     private static long id = 0;

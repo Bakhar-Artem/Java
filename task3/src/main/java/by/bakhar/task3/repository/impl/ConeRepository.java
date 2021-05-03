@@ -62,7 +62,7 @@ public class ConeRepository implements Repository {
 
     @Override
     public List<Cone> sort(Comparator<Cone> coneComparator) {
-        List<Cone> result = cones.stream().sorted(coneComparator::compare).collect(Collectors.toList());
+        List<Cone> result = (ArrayList) cones.stream().sorted(coneComparator::compare).collect(Collectors.toList());
         logger.info("Cones were sorted by " + coneComparator.getClass());
         return result;
     }

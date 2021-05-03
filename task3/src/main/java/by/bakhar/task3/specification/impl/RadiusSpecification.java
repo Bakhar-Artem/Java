@@ -4,15 +4,18 @@ import by.bakhar.task3.entity.Cone;
 import by.bakhar.task3.specification.Specification;
 
 public class RadiusSpecification implements Specification {
-    private double radius;
+    private double lowerBound;
+    private double upperBound;
 
-    public RadiusSpecification(double radius) {
-        this.radius = radius;
+    public RadiusSpecification(double lowerBound, double upperBound) {
+        this.lowerBound = lowerBound;
+        this.upperBound = upperBound;
     }
 
     @Override
     public boolean specify(Cone cone) {
-        boolean result = Double.compare(cone.getRadius(), radius) == 0;
+        double radius = cone.getRadius();
+        boolean result = (radius >= lowerBound && radius <= upperBound);
         return result;
     }
 }

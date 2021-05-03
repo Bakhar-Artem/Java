@@ -1,18 +1,25 @@
 package by.bakhar.task3.entity;
 
 import by.bakhar.task3.exception.ConeException;
-import by.bakhar.task3.utils.ConeIdGenerator;
+import by.bakhar.task3.observer.ConeEvent;
+import by.bakhar.task3.observer.ConeObservable;
+import by.bakhar.task3.observer.ConeObserver;
+import by.bakhar.task3.util.ConeIdGenerator;
 import by.bakhar.task3.validation.ConeValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class Cone {
-    static Logger logger = LogManager.getLogger();
+
+public class Cone implements ConeObservable<ConeObserver> {
+    private static Logger logger = LogManager.getLogger();
     private long id;
     private Point centerPoint;
     private double radius;
     private Point highPoint;
+    private List<ConeObserver> observerList;
 
     public Cone(Point centerPoint, double radius, Point highPoint) throws ConeException {
         if (!ConeValidator.isValidData(centerPoint, radius, highPoint)) {
@@ -23,6 +30,7 @@ public class Cone {
         this.centerPoint = centerPoint;
         this.radius = radius;
         this.highPoint = highPoint;
+        observerList = new ArrayList<>();
     }
 
     public long getId() {
@@ -37,24 +45,27 @@ public class Cone {
         return centerPoint;
     }
 
-    public void setCenterPoint(Point centerPoint) {
+    public void setCenterPoint(Point centerPoint) throws ConeException {
         this.centerPoint = centerPoint;
+        notifyObservers();
     }
 
     public double getRadius() {
         return radius;
     }
 
-    public void setRadius(double radius) {
+    public void setRadius(double radius) throws ConeException {
         this.radius = radius;
+        notifyObservers();
     }
 
     public Point getHighPoint() {
         return highPoint;
     }
 
-    public void setHighPoint(Point highPoint) {
+    public void setHighPoint(Point highPoint) throws ConeException {
         this.highPoint = highPoint;
+        notifyObservers();
     }
 
     @Override
@@ -87,5 +98,24 @@ public class Cone {
         stringBuilder.append(", radius: ").append(radius);
         stringBuilder.append(", highPoint: ").append(highPoint);
         return stringBuilder.toString();
+    }
+
+    @Override
+    public void attach(ConeObserver observer) {
+        observerList.add(observer);
+    }
+
+    @Override
+    public void detach(ConeObserver observer) {
+        observerList.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() throws ConeException {
+        ConeEvent event = new ConeEvent(this);
+        for (ConeObserver observer : observerList) {
+            observer.updateSquare(event);
+            observer.updateVolume(event);
+        }
     }
 }
