@@ -4,3 +4,21 @@
 23:26:01.175 [main] INFO  by.bakhar.task3.observer.impl.ConeObserverImpl - Volume was updated to 52.35987755982988
 23:26:01.178 [main] INFO  by.bakhar.task3.observer.impl.ConeObserverImpl - Square was updated to 218.8252082227637
 23:26:01.178 [main] INFO  by.bakhar.task3.observer.impl.ConeObserverImpl - Volume was updated to 193.73154697137056
+23:33:29.237 [main] ERROR by.bakhar.task3.entity.Cone - wrong params x= 5.0 y= 5.0 z= 5.0 15.2 x= 5.6 y= 7.0 z= 5.0
+23:33:29.242 [main] ERROR by.bakhar.task3.entity.Cone - wrong params x= 5.0 y= 5.0 z= 5.0 -2.0 x= 5.0 y= 7.0 z= 5.0
+23:33:42.322 [main] ERROR by.bakhar.task3.entity.Cone - wrong params x= 2.5 y= 15.0 z= 1.4 -6.5 x= 52.14 y= 2.6 z= 4.0
+23:34:38.385 [main] ERROR by.bakhar.task3.entity.Cone - wrong params x= 2.5 y= 15.0 z= 1.4 -6.5 x= 52.14 y= 2.6 z= 4.0
+23:34:49.288 [main] INFO  by.bakhar.task3.entity.Warehouse - Cone was add 1 ConeParameters: square: 106.4640003057625, volume: 33.510321638291124
+23:34:49.343 [main] ERROR by.bakhar.task3.observer.impl.ConeObserverImpl - Cone became invalid! id: 2, centerPoint: x= 0.0 y= 5.0 z= 0.0, radius: 4.0, highPoint: x= -5.4 y= 5.0 z= 0.0
+23:34:49.357 [main] INFO  by.bakhar.task3.observer.impl.ConeObserverImpl - Square was updated to 163.1297873220651
+23:34:49.358 [main] INFO  by.bakhar.task3.observer.impl.ConeObserverImpl - Volume was updated to 52.35987755982988
+23:34:49.362 [main] INFO  by.bakhar.task3.observer.impl.ConeObserverImpl - Square was updated to 218.8252082227637
+23:34:49.362 [main] INFO  by.bakhar.task3.observer.impl.ConeObserverImpl - Volume was updated to 193.73154697137056
+23:35:02.579 [main] INFO  by.bakhar.task3.repository.impl.ConeRepository - Cone was add! id: 1, centerPoint: x= 0.0 y= 5.0 z= 0.0, radius: 4.0, highPoint: x= 0.0 y= 7.0 z= 0.0
+23:35:02.584 [main] INFO  by.bakhar.task3.repository.impl.ConeRepository - Cone was add! id: 2, centerPoint: x= -5.4 y= 5.0 z= 5.9, radius: 5.6, highPoint: x= -5.4 y= 15.4 z= 5.9
+23:35:02.586 [main] INFO  by.bakhar.task3.repository.impl.ConeRepository - Cone was add! id: 3, centerPoint: x= 17.4 y= -9.6 z= 5.9, radius: 3.6, highPoint: x= 17.4 y= 10.0 z= 5.9
+23:35:02.629 [main] INFO  by.bakhar.task3.repository.impl.ConeRepository - Cones were specified by class by.bakhar.task3.specification.impl.IdSpecification
+23:35:02.635 [main] INFO  by.bakhar.task3.repository.impl.ConeRepository - Cones were specified by class by.bakhar.task3.specification.impl.RadiusSpecification
+23:35:02.639 [main] INFO  by.bakhar.task3.repository.impl.ConeRepository - Cones were sorted by class by.bakhar.task3.comparator.IdComparator
+23:35:02.642 [main] INFO  by.bakhar.task3.repository.impl.ConeRepository - Cones were sorted by class by.bakhar.task3.comparator.RadiusComparator
+23:35:02.643 [main] INFO  by.bakhar.task3.repository.impl.ConeRepository - Cones were sorted by class by.bakhar.task3.comparator.CenterPointXComparator

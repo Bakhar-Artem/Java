@@ -18,6 +18,7 @@ public class ConeFactoryTest {
     public void testCreateConeGood() throws ConeException {
         Cone expected = new Cone(new Point(2.5, 6.4, -2.5), 0.5, new Point(2.5, -5.4, -2.5));
         Cone actual = ConeFactory.createCone(new double[]{2.5, 6.4, -2.5, 0.5, 2.5, -5.4, -2.5});
+        actual.setId(1);
         Assert.assertEquals(actual, expected);
     }
 }
