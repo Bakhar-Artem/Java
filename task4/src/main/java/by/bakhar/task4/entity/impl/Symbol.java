@@ -3,11 +3,11 @@ package by.bakhar.task4.entity.impl;
 import by.bakhar.task4.entity.Component;
 import by.bakhar.task4.entity.ComponentType;
 
-public class Leaf implements Component {
+public class Symbol implements Component {
     private char symbol;
     private ComponentType componentType;
 
-    public Leaf(char symbol, ComponentType componentType) {
+    public Symbol(char symbol, ComponentType componentType) {
         this.symbol = symbol;
         this.componentType = componentType;
     }

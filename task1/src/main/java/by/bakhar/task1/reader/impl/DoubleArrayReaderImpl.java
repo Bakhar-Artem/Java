@@ -18,6 +18,7 @@ public class DoubleArrayReaderImpl implements DoubleArrayReader {
 
     @Override
     public List<String> readFromTxt(String filepath) throws DoubleArrayReaderException {
+
         List<String> strings = new ArrayList<>();
         try {
             Files.lines(Paths.get(filepath), StandardCharsets.UTF_8).forEach(strings::add);
