@@ -31,7 +31,8 @@ public class GamePanel extends JPanel implements GamePanelObservable<GamePanelOb
         for (int[] ints : matrixOfPicture) {
             Arrays.fill(ints, value);
         }
-        matrixOfPicture[3][3]= CountImageService.countImagePos(4);
+        matrixOfPicture[2][2]= 2;
+        matrixOfPicture[3][3]= 2;
         imageList = PictureReader.readImages();
         attach(new GamePanelObserverImpl());
 
@@ -52,8 +53,8 @@ public class GamePanel extends JPanel implements GamePanelObservable<GamePanelOb
         }
         for (int i = 0; i < matrixOfPicture.length; i++) {
             for (int j = 0; j < matrixOfPicture[i].length; j++) {
-                int value = matrixOfPicture[i][j];
-                g.drawImage(imageList.get(value), LINE_LENGTH * i + 5, LINE_LENGTH * j + 5, null);
+                int pos = CountImageService.countImagePos(matrixOfPicture[i][j]);
+                g.drawImage(imageList.get(pos), LINE_LENGTH * j + 5, LINE_LENGTH * i + 5, null);
             }
         }
 
@@ -75,10 +76,10 @@ public class GamePanel extends JPanel implements GamePanelObservable<GamePanelOb
     }
 
     @Override
-    public void notifyObservers() {
+    public void notifyObservers() throws IOException {
         GamePanelEvent event = new GamePanelEvent(this);
         for (GamePanelObserver observer : observerList) {
-            observer.repaint(this);
+            observer.repaint(event.getSource());
         }
     }
 }

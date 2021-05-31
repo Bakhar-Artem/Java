@@ -1,6 +1,8 @@
 package by.bakhar.game.frame;
 
-import by.bakhar.game.service.CountImageService;
+import by.bakhar.game.service.MoveService;
+import by.bakhar.game.service.Toward;
+import by.bakhar.game.service.impl.MoveServiceImpl;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,22 +37,39 @@ public class GameGrid extends JFrame implements KeyListener {
     public void keyReleased(KeyEvent e) {
         int[][] matrixOfPicture = gamePanel.getMatrixOfPicture();
         int value = e.getKeyCode();
+        MoveService moveService = new MoveServiceImpl();
         switch (value) {
             case 37 -> {//left
-                boolean flag = true;
-                while (flag) {
-                    for (int i = 0; i < matrixOfPicture.length; i++) {
-                        for (int j = 0; j < matrixOfPicture[i].length; j++) {
-                            if (j != 0 && matrixOfPicture[i][j] != CountImageService.countImagePos(0)) {
-                                matrixOfPicture[i][j - 1] = matrixOfPicture[i][j];
-                                matrixOfPicture[i][j] = CountImageService.countImagePos(0);
-                                flag = false;
-                            }
-                        }
-                        flag = !flag;
-                    }
+                moveService.moveToward(matrixOfPicture, Toward.LEFT);
+                try {
+                    gamePanel.notifyObservers();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
                 }
-                gamePanel.notifyObservers();
+            }
+            case 39 -> {
+                moveService.moveToward(matrixOfPicture, Toward.RIGHT);
+                try {
+                    gamePanel.notifyObservers();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+            case 38 -> {
+                moveService.moveToward(matrixOfPicture, Toward.UP);
+                try {
+                    gamePanel.notifyObservers();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+            case 40 -> {
+                moveService.moveToward(matrixOfPicture, Toward.DOWN);
+                try {
+                    gamePanel.notifyObservers();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         }
     }
