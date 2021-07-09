@@ -6,44 +6,52 @@ import by.bakhar.task4.entity.impl.Composite;
 import by.bakhar.task4.entity.impl.Symbol;
 import by.bakhar.task4.exception.ComponentException;
 import by.bakhar.task4.parser.ComponentParser;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LexemeParser implements ComponentParser {
-    private final static String WORD_DELIMITER = "[:\\,-]";
-    private final static String PUNCTUATION_DELIMITER = "[,:\\-'\".]";
-    private ComponentParser componentParser;
+    private static Logger logger = LogManager.getLogger();
+    private final static String WORD_REGEX = "[a-zA-Zа-яА-я]+";
+    private final static String PUNCTUATION_DELIMITER = "\\p{P}";
+    private ComponentParser nextParser = new WordParser();
 
     @Override
     public void setNext(ComponentParser parser) {
-        componentParser = parser;
+        logger.info("parser was chanched to " + parser.getClass());
+        nextParser = parser;
     }
 
     @Override
     public void processData(String text, Component component) throws ComponentException {
         ComponentType type = component.getComponentType();
         if (type == ComponentType.LEXEME) {
-            Pattern wordPattern = Pattern.compile(PUNCTUATION_DELIMITER);
-            Matcher wordMatcher = wordPattern.matcher(text);
-            int index = 0;
-            while (wordMatcher.find()) {
-                String word = text.substring(index, wordMatcher.end());
-                index = wordMatcher.end();
-                Composite wordComposite = new Composite(ComponentType.WORD);
-                component.add(wordComposite);
-                componentParser.processData(word, wordComposite);
-            }
-            char[] punctuationArray=text.toCharArray();
-            for (char symbol:punctuationArray){
-                if (Pattern.matches(PUNCTUATION_DELIMITER, String.valueOf(symbol))) {
-                    component.add(new Symbol(symbol, ComponentType.PUNCTUATION));
+            if (!text.isBlank()) {
+                char[] symbols = text.toCharArray();
+                StringBuilder wordBuilder = new StringBuilder();
+                for (int i = 0; i < symbols.length; i++) {
+                    if (Pattern.matches(PUNCTUATION_DELIMITER, String.valueOf(symbols[i]))) {
+                        if (!wordBuilder.isEmpty()) {
+                            Component wordComponent = new Composite(ComponentType.WORD);
+                            nextParser.processData(wordBuilder.toString(), wordComponent);
+                            wordBuilder = new StringBuilder();
+                            component.add(wordComponent);
+                        }
+                        component.add(new Symbol(symbols[i], ComponentType.PUNCTUATION));
+                    } else {
+                        wordBuilder.append(symbols[i]);
+                    }
+                }
+                if (!wordBuilder.isEmpty()) {
+                    Component wordComponent = new Composite(ComponentType.WORD);
+                    nextParser.processData(wordBuilder.toString(), wordComponent);
+                    component.add(wordComponent);
                 }
             }
+
         } else {
-            componentParser.processData(text, component);
+            nextParser.processData(text, component);
         }
     }
 }

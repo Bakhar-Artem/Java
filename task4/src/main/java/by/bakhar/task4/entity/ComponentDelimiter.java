@@ -10,4 +10,8 @@ public enum ComponentDelimiter {
         this.delimiter = delimiter;
     }
 
+    @Override
+    public String toString() {
+        return delimiter;
+    }
 }

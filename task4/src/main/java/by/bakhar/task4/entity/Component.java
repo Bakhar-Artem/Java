@@ -1,6 +1,6 @@
 package by.bakhar.task4.entity;
 
-import by.bakhar.task4.exception.ComponentException;
+import java.util.List;
 
 public interface Component {
     void add(Component component);
@@ -9,5 +9,7 @@ public interface Component {
 
     ComponentType getComponentType();
 
-    Object getChild(int index) throws ComponentException;
+    List<Component> getChildrenList();
+
+    int getChildrenSize();
 }

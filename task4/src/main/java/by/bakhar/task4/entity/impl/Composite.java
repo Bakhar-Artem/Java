@@ -3,12 +3,15 @@ package by.bakhar.task4.entity.impl;
 import by.bakhar.task4.entity.Component;
 import by.bakhar.task4.entity.ComponentDelimiter;
 import by.bakhar.task4.entity.ComponentType;
-import by.bakhar.task4.exception.ComponentException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Composite implements Component {
+    private static Logger logger = LogManager.getLogger();
     private List<Component> components;
     private ComponentType componentType;
 
@@ -25,6 +28,7 @@ public class Composite implements Component {
     @Override
     public void remove(Component component) {
         components.remove(component);
+        logger.info("component was removed");
     }
 
     @Override
@@ -33,32 +37,31 @@ public class Composite implements Component {
     }
 
     @Override
-    public Object getChild(int index) throws ComponentException {
-        if (index < 0 || index >= components.size()) {
-            throw new ComponentException("Bad index! " + index);
-        }
-        return components.get(index);
+    public int getChildrenSize() {
+        return components.size();
+    }
+
+    @Override
+    public List<Component> getChildrenList() {
+        return List.copyOf(components);
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         switch (componentType) {
-            case TEXT -> {
-                for (Component component : components) {
-                    stringBuilder.append(component).append(ComponentDelimiter.ENTER);
-                }
-            }
+
             case PARAGRAPH -> {
                 stringBuilder.append(ComponentDelimiter.TAB);
                 for (Component component : components) {
-                    stringBuilder.append(component).append(ComponentDelimiter.SPACE);
+                    stringBuilder.append(component);
                 }
             }
-            case SENTENCE -> {
+            case LEXEME -> {
                 for (Component component : components) {
-                    stringBuilder.append(component).append(ComponentDelimiter.SPACE);
+                    stringBuilder.append(component);
                 }
+                stringBuilder.append(ComponentDelimiter.SPACE);
             }
             default -> {
                 for (Component component : components) {

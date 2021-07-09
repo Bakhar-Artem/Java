@@ -2,8 +2,13 @@ package by.bakhar.task4.entity.impl;
 
 import by.bakhar.task4.entity.Component;
 import by.bakhar.task4.entity.ComponentType;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.List;
 
 public class Symbol implements Component {
+    private static Logger logger = LogManager.getLogger();
     private char symbol;
     private ComponentType componentType;
 
@@ -14,11 +19,13 @@ public class Symbol implements Component {
 
     @Override
     public void add(Component component) {
+        logger.error("method add unsupported!");
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void remove(Component component) {
+        logger.error("method remove unsupported!");
         throw new UnsupportedOperationException();
     }
 
@@ -28,7 +35,13 @@ public class Symbol implements Component {
     }
 
     @Override
-    public Object getChild(int index) {
+    public List<Component> getChildrenList() {
+        logger.error("method getChildrenList unsupported!");
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getChildrenSize() {
         throw new UnsupportedOperationException();
     }
 
