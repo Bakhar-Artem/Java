@@ -3,7 +3,8 @@ package by.bakhar.project.entity;
 public class User extends Entity {
     private long id;
     private String name;
-    private String email;
+    private String lastname;
+    private String login;
     private String password;
     private UserRole userRole;
     private Status status;
@@ -16,6 +17,14 @@ public class User extends Entity {
         this.id = id;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
     public String getName() {
         return name;
     }
@@ -24,12 +33,20 @@ public class User extends Entity {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public UserRole getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
     }
 
     public String getPassword() {
@@ -65,14 +82,14 @@ public class User extends Entity {
             return false;
         }
         User user = (User) o;
-        return id == user.id && name.equals(user.name) && email.equals(user.email) && password.equals(user.password) && userRole == user.userRole && status == user.status;
+        return id == user.id && name.equals(user.name) && login.equals(user.login) && password.equals(user.password) && userRole == user.userRole && status == user.status;
     }
 
     @Override
     public int hashCode() {
         int hash = (13 * Long.hashCode(id)) % 101;
         hash += (15 * name.hashCode()) % 101;
-        hash += (17 * email.hashCode()) % 101;
+        hash += (17 * login.hashCode()) % 101;
         hash += (17 * password.hashCode()) % 101;
         hash += (19 * userRole.hashCode()) % 101;
         hash += (21 * status.hashCode()) % 101;
@@ -81,10 +98,11 @@ public class User extends Entity {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder=new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("id: ").append(id);
         stringBuilder.append(", name: ").append(name);
-        stringBuilder.append(", email: ").append(email);
+        stringBuilder.append(", lastname: ").append(lastname);
+        stringBuilder.append(", login: ").append(login);
         stringBuilder.append(", role: ").append(userRole);
         stringBuilder.append(", status: ").append(status);
         return stringBuilder.toString();

@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="tattoo_salon" target="9" />
+      <module name="tattoo_salon" target="14" />
     </bytecodeTargetLevel>
   </component>
 </project>

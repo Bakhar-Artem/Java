@@ -15,14 +15,16 @@ public enum CustomPool {
     private BlockingQueue<ProxyConnection> freeConnection;
     private Queue<ProxyConnection> givenAwayConnection;
 
+    private final static String DATABASE_DRIVER = "org.postgresql.Driver";
     private final static String DATABASE_URL = "jdbc:postgresql://localhost:3306/salon";
     private final static String DATABASE_USER = "postgres";
     private final static String DATABASE_PASS = "root";
     private final static int DEFAULT_POOL_SIZE = 32;
 
+
     CustomPool() {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName(DATABASE_DRIVER);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -37,7 +39,7 @@ public enum CustomPool {
         }
     }
 
-    public Connection getConnection() {
+    public ProxyConnection getConnection() {
         ProxyConnection connection = null;
         try {
             connection = freeConnection.take();

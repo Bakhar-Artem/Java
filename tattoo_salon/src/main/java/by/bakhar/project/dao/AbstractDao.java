@@ -2,6 +2,7 @@ package by.bakhar.project.dao;
 
 import by.bakhar.project.entity.Entity;
 import by.bakhar.project.exception.DaoException;
+import by.bakhar.project.pool.ProxyConnection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,9 +10,9 @@ import java.sql.Statement;
 import java.util.List;
 
 public abstract class AbstractDao<T extends Entity> {
-    protected Connection connection;
+    protected ProxyConnection connection;
 
-    public abstract List<T> findAll() throws DaoException;
+    public abstract List<T> findAll() throws DaoException, SQLException;
 
     public abstract T findById(long id);
 
@@ -28,8 +29,13 @@ public abstract class AbstractDao<T extends Entity> {
             }
         }
     }
+    public abstract boolean addEntity(T entity) throws DaoException, SQLException;
 
-    void setConnection(Connection connection) {
-        this.connection = connection;
-    }
+    void setConnection(Connection connection) throws DaoException {
+        if(connection.getClass()!= ProxyConnection.class){
+            throw new DaoException("wrong connection class");
+            //log
+        }
+        this.connection = (ProxyConnection) connection;
+        }
 }
