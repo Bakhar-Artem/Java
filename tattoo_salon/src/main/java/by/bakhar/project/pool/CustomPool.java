@@ -13,7 +13,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 public enum CustomPool {
     INSTANCE;
     private BlockingQueue<ProxyConnection> freeConnection;
-    private Queue<ProxyConnection> givenAwayConnection;
+    private BlockingQueue<ProxyConnection> givenAwayConnection;
 
     private final static String DATABASE_DRIVER = "org.postgresql.Driver";
     private final static String DATABASE_URL = "jdbc:postgresql://localhost:3306/salon";
@@ -29,7 +29,7 @@ public enum CustomPool {
             e.printStackTrace();
         }
         freeConnection = new LinkedBlockingDeque<>(DEFAULT_POOL_SIZE);
-        givenAwayConnection = new ArrayDeque<>();
+        givenAwayConnection = new LinkedBlockingDeque<>();
         for (int i = 0; i < DEFAULT_POOL_SIZE; i++) {
             try {
                 freeConnection.offer(new ProxyConnection(DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASS)));
@@ -50,12 +50,13 @@ public enum CustomPool {
         return connection;
     }
 
-    public void releaseConnection(Connection connection) throws ProxyConnectionException {
+    public boolean releaseConnection(Connection connection) throws ProxyConnectionException {
         if (connection.getClass() != ProxyConnection.class) {
-            throw new ProxyConnectionException();
+            return false;
         }
         givenAwayConnection.remove(connection);
         freeConnection.offer((ProxyConnection) connection);
+        return true;
     }
 
     public void destroyPool() {

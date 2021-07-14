@@ -11,8 +11,12 @@
     <title>Registration</title>
 </head>
 <body>
-<form name="RegForm" method="POST" action="reg-servlet">
-    <input type="hidden" name="command" value="register"/>
+<form name="RegistrationForm" method="POST" action="${pageContext.request.contextPath}/controller">
+    <input type="hidden" name="command" value="registration"/>
+    <input type="text" name="name" value="">
+    <br>
+    <input type="text" name="lastname" value="">
+    <br>
     Login:
     <input type="text" name="login" value=""/>
     <br/>Password:

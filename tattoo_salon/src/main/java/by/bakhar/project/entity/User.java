@@ -1,28 +1,60 @@
 package by.bakhar.project.entity;
 
 public class User extends Entity {
+    public enum UserRole {
+        ADMIN, GUEST, CLIENT, MASTER;
+
+        @Override
+        public String toString() {
+            return name().toLowerCase();
+        }
+    }
+    public enum UserStatus{
+        ACTIVE,BANNED;
+        @Override
+        public String toString() {
+            return name().toLowerCase();
+        }
+    }
+
     private long id;
     private String name;
     private String lastname;
     private String login;
-    private String password;
     private UserRole userRole;
-    private Status status;
+    private UserStatus status;
+    public class UserBuilder{
+        private UserBuilder(){};
+        public User buildUser(long id,String name,String lastname,String login,UserRole userRole,UserStatus userStatus){
+            User user=new User();
+            user.setId(id);
+            user.setName(name);
+            user.setLastname(lastname);
+            user.setLogin(login);
+            user.setUserRole(userRole);
+            user.setStatus(userStatus);
+            return user;
+        }
+        public User buildUserIgnoreId(String name,String lastname,String login,UserRole userRole,UserStatus userStatus){
+            User user=new User();
+            user.setName(name);
+            user.setLastname(lastname);
+            user.setLogin(login);
+            user.setUserRole(userRole);
+            user.setStatus(userStatus);
+            return user;
+        }
 
+    }
+    public static UserBuilder createBuilder(){
+        return new User().new UserBuilder();
+    }
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getName() {
@@ -41,6 +73,14 @@ public class User extends Entity {
         this.lastname = lastname;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
     public UserRole getUserRole() {
         return userRole;
     }
@@ -49,27 +89,11 @@ public class User extends Entity {
         this.userRole = userRole;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public UserRole getRole() {
-        return userRole;
-    }
-
-    public void setRole(UserRole userRole) {
-        this.userRole = userRole;
-    }
-
-    public Status getStatus() {
+    public UserStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(UserStatus status) {
         this.status = status;
     }
 
@@ -82,7 +106,7 @@ public class User extends Entity {
             return false;
         }
         User user = (User) o;
-        return id == user.id && name.equals(user.name) && login.equals(user.login) && password.equals(user.password) && userRole == user.userRole && status == user.status;
+        return id == user.id && name.equals(user.name) && login.equals(user.login) && userRole == user.userRole && status == user.status;
     }
 
     @Override
@@ -90,7 +114,6 @@ public class User extends Entity {
         int hash = (13 * Long.hashCode(id)) % 101;
         hash += (15 * name.hashCode()) % 101;
         hash += (17 * login.hashCode()) % 101;
-        hash += (17 * password.hashCode()) % 101;
         hash += (19 * userRole.hashCode()) % 101;
         hash += (21 * status.hashCode()) % 101;
         return hash;

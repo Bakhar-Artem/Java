@@ -8,17 +8,18 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Optional;
 
 public abstract class AbstractDao<T extends Entity> {
     protected ProxyConnection connection;
 
-    public abstract List<T> findAll() throws DaoException, SQLException;
+    public abstract List<T> findAll() throws DaoException;
 
-    public abstract T findById(long id);
+    public abstract Optional<T> findById(long id)throws DaoException;
 
-    public abstract boolean removeById(long id);
+    public abstract boolean removeById(long id)throws DaoException;
 
-    public abstract boolean remove(T entity);
+    public abstract boolean remove(T entity)throws DaoException;
 
     public void close(Statement statement) {
         if (statement != null) {
@@ -29,7 +30,6 @@ public abstract class AbstractDao<T extends Entity> {
             }
         }
     }
-    public abstract boolean addEntity(T entity) throws DaoException, SQLException;
 
     void setConnection(Connection connection) throws DaoException {
         if(connection.getClass()!= ProxyConnection.class){
