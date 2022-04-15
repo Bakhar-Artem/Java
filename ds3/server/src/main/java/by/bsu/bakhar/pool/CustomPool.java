@@ -16,7 +16,7 @@ public enum CustomPool {
     private BlockingQueue<ProxyConnection> givenAwayConnection;
 
     private final static String DATABASE_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private final static String DATABASE_URL = "jdbc:mysql://34.125.242.134:3306/lab1";
+    private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/lab1";
     private final static String DATABASE_USER = "bakhar";
     private final static String DATABASE_PASS = "1111";
     private final static int DEFAULT_POOL_SIZE = 32;

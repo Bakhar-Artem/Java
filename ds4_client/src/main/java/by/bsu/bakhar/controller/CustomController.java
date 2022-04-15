@@ -1,6 +1,5 @@
 package by.bsu.bakhar.controller;
 
-
 import by.bsu.bakhar.dao.ProdInStoreDao;
 import by.bsu.bakhar.dao.ProductDao;
 import by.bsu.bakhar.dao.StoreDao;
@@ -62,7 +61,7 @@ public class CustomController {
     @FXML
     private TextField prodInStoreValue;
 
-    public CustomController() throws NotBoundException, RemoteException, RemoteException, NotBoundException {
+    public CustomController() throws NotBoundException, RemoteException {
     }
 
     //finish store tab
@@ -147,6 +146,7 @@ public class CustomController {
                 return;
             }
             addProductInStoreService.add(store, product, amount);
+            fillProdInStore(null);
         }
 
 

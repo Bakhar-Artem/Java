@@ -1,0 +1,46 @@
+[
+  {
+    "product": {
+  "id": 3,
+  "name": "Xiaomi"
+},
+    "store": {
+  "storeId": 2,
+  "city": "Brest"
+},
+    "amount": 6
+  },
+  {
+    "product": {
+  "id": 2,
+  "name": "Samsung"
+},
+    "store": {
+  "storeId": 3,
+  "city": "Grodno"
+},
+    "amount": 4
+  },
+  {
+    "product": {
+  "id": 3,
+  "name": "Xiaomi"
+},
+    "store": {
+  "storeId": 3,
+  "city": "Grodno"
+},
+    "amount": 20
+  },
+  {
+    "product": {
+  "id": 2,
+  "name": "Samsung"
+},
+    "store": {
+  "storeId": 1,
+  "city": "Minsk"
+},
+    "amount": 20
+  }
+]

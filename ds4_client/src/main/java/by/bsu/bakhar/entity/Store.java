@@ -12,14 +12,6 @@ public class Store implements Serializable {
         this.city = city;
     }
 
-    public void setStoreId(Integer storeId) {
-        this.storeId = storeId;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public Integer getStoreId() {
         return storeId;
     }

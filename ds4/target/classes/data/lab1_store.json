@@ -1,0 +1,14 @@
+[
+  {
+    "storeId": 1,
+    "city": "Minsk"
+  },
+  {
+    "storeId": 2,
+    "city": "Brest"
+  },
+  {
+    "storeId": 3,
+    "city": "Grodno"
+  }
+]
