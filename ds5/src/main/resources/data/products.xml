@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<products>
+    <product>
+        <id>2</id>
+        <name>Samsung</name>
+    </product>
+    <product>
+        <id>3</id>
+        <name>Xiaomi</name>
+    </product>
+</products>

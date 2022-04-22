@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prodsInStores>
+    <prod_in_store>
+        <product>
+            <id>2</id>
+            <name>Samsung</name>
+        </product>
+        <store>
+            <storeId>1</storeId>
+            <city>Minsk</city>
+        </store>
+        <amount>16</amount>
+    </prod_in_store>
+    <prod_in_store>
+        <product>
+            <id>3</id>
+            <name>Xiaomi</name>
+        </product>
+        <store>
+            <storeId>2</storeId>
+            <city>Brest</city>
+        </store>
+        <amount>6</amount>
+    </prod_in_store>
+    <prod_in_store>
+        <product>
+            <id>2</id>
+            <name>Samsung</name>
+        </product>
+        <store>
+            <storeId>3</storeId>
+            <city>Grodno</city>
+        </store>
+        <amount>4</amount>
+    </prod_in_store>
+    <prod_in_store>
+        <product>
+            <id>3</id>
+            <name>Xiaomi</name>
+        </product>
+        <store>
+            <storeId>3</storeId>
+            <city>Grodno</city>
+        </store>
+        <amount>20</amount>
+    </prod_in_store>
+</prodsInStores>

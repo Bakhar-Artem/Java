@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stores>
+    <store>
+        <storeId>1</storeId>
+        <city>Minsk</city>
+    </store>
+    <store>
+        <storeId>2</storeId>
+        <city>Brest</city>
+    </store>
+    <store>
+        <storeId>3</storeId>
+        <city>Grodno</city>
+    </store>
+</stores>
